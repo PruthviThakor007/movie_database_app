@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Movie App</title>
+    <link rel="shortcut icon" href="favicon.svg" type="image/svg" />
+    <link rel="stylesheet" href="./assets/css/style.css" />
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;700&display=swap" rel="stylesheet"> -->
+    <script src="./assets/js/global.js" type="module"></script>
+    <script src="./assets/js/index.js" type="module"></script>
+</head>
+
+<body>
+    <div class="wraper">
+        <header class="navbar">
+            <div class="logonserch">
+                <a href="index.html"><img src="./assets/images/logo.png" alt="" srcset="" /></a>
+                <div class="serchbar">
+                    <div class="icon" id="searchicon" >
+                        <img src="./assets/images/search.png" alt="" width="24" height="24" />
+                    </div>
+                    <input type="search" class="empty serchhide" name="" id="searchinput" placeholder="Search any movies..."/>
+                </div>
+            </div>
+            <div class="icon menubaricon" id="menuicon" >
+                <img src="./assets/images/menu.png" alt="" width="24" height="24" />
+            </div>
+        </header>
+
+        <div class="main">
+            <div class="sidebar hide" id="sidebar">
+                
+            </div>
+
+            <div class="banner">
+                <div class="bannercon">
+                    <div class="slider">
+                        <div class="content">
+                            <h2>Puss in Boots: The Last Wish</h2>
+                            <p>
+                                Puss in Boots discovers that his passion for adventure has
+                                taken its toll: He has burned through eight of his nine lives,
+                                leaving him with only one life left. Puss sets out on an epic
+                                journey to find the mythical Last Wish and restore his nine
+                                lives.
+                            </p>
+                            <div class="gon">Animation, Action, Adventure</div>
+                            <div class="details">
+                                <h5>2022</h5>
+                                <div class="rating">7.5 ⭐</div>
+                            </div>
+                            <div class="btncont">
+                                <div class="btn">
+                                    <img src="./assets/images/play_circle.png" width="24" height="24" alt="" />
+                                    <button><a href="./detail.html">Watch Now</a></button>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="overlay">
+                            <img src="./assets/images/slider-banner.jpg" alt="" />
+                        </div>
+                        <div class="slideshow" id="scroll">
+                            <div class="card active" id="card">
+                                <img src="./assets/images/slider-control.jpg" alt="" />
+                            </div>
+                            <div class="card" id="card">
+                                <img src="./assets/images/slider-control.jpg" alt="" />
+                            </div>
+                            <div class="card" id="card">
+                                <img src="./assets/images/slider-control.jpg" alt="" />
+                            </div>
+                            <div class="card" id="card">
+                                <img src="./assets/images/slider-control.jpg" alt="" />
+                            </div>
+                            <div class="card" id="card">
+                                <img src="./assets/images/slider-control.jpg" alt="" />
+                            </div>
+                            <div class="card" id="card">
+                                <img src="./assets/images/slider-control.jpg" alt="" />
+                            </div>
+                        </div>
+                    </div>
+                    <h3>Wekely Trening Movies</h3>
+                    <div class="slideshow2" id="scroll">
+                        <div class="card2 active" id="card">
+                            <img src="./assets/images/slider-control.jpg" alt="" />
+                        </div>
+                        <div class="card2" id="card">
+                            <img src="./assets/images/slider-control.jpg" alt="" />
+                        </div>
+                    </div>
+                    <h3>Top Rated Movies</h3>
+                    <div class="slideshow2" id="scroll">
+                        <div class="card2 active" id="card">
+                            <img src="./assets/images/slider-control.jpg" alt="" />
+                        </div> 
+                        <div class="card2" id="card">
+                            <img src="./assets/images/slider-control.jpg" alt="" />
+                        </div>
+                        <div class="card2" id="card">
+                            <img src="./assets/images/slider-control.jpg" alt="" />
+                        </div>
+                    </div>
+                    <h3>UpComing Movies</h3>
+                    <div class="slideshow2" id="scroll">
+                        <div class="card2 active" id="card">
+                            <img src="./assets/images/slider-control.jpg" alt="" />
+                        </div>
+                        <div class="card2" id="card"> 
+                            <img src="./assets/images/slider-control.jpg" alt="" />
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script defer>
+        const Slideshows = document.querySelectorAll("#scroll");
+    const cards = document.querySelectorAll("#card");
+
+    cards.forEach(cards => {
+
+            cards.addEventListener('click', (e) => {
+                cards.classList.toggle('active');
+            });
+    });
+    Slideshows.forEach(Slideshows => {
+        if (Slideshows) {
+            Slideshows.addEventListener('mouseenter', () => {
+                Slideshows.classList.add('hovered');
+            });
+
+            Slideshows.addEventListener('mouseleave', () => {
+                Slideshows.classList.remove('hovered');
+            });
+            Slideshows.addEventListener('wheel', (e) => {
+                e.preventDefault();
+                if (Slideshows.classList.contains('hovered')) {
+                    Slideshows.scrollLeft += e.deltaY;
+                } else {
+                    Slideshows.scrollLeft -= e.deltaY;
+                }
+            });
+        } else {
+            console.error("Element with id 'scroll' not found.");
+        }
+    });
+    </script>
+</body>
+</html>
